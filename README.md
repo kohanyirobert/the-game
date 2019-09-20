@@ -1,37 +1,37 @@
 # "The Game"
 
-## Functional requirements:
-1. the user specifies a number that will mean how many numbers will be in our list
-    N variable (global variable, never assign new value to this), input, int
-1a. the minimum is 3 the max is 10
-    if (maybe with else), <=, >, print, exit
-2. the list fill be filled with random numbers
-2a. generate a random number N times
-    for (maybe while), using the random module (import, find which function generates a random int)
-2b. append the random number to the list
-    list, empty list, append
-    save the list in a variable
-3. the numbers are shown to the user one by one
-    for (maybe) -> iterate over the list, print, must know what is the "loop variable"
-3a. the screen is cleared each time
-    os (module, import), use system('clear'), system('cls')
-3b. the number is shown for half a second
-    time (module, import), use sleep(3)
-4. after each number was shown the game picks a random number, shows it to the user
-    pick a random number -> generate a random number from 0 to (N-1)
-    save it to a variable -> use it as an index
-    using the index print the element (at the index)
-4a. the user must remember at which index the number was located in the list
-    input, int
-    the user gives an input (numeric)
-4c. the game decides if it's a match or not
-    validate bad input
-4d. if it's a match -> the user WON otherwise the user dies
-    if VALID:
-        print('WON')
-    else:
-        print('YOU DIED')
+## Functional requirements
 
-Non-functional requirements:
-1. if the user gives bad input the program must not crash
-2. the program must stay consistent at all times
+1. The user specifies a number that will mean how many numbers will be in our list.
+    * Need to store this somewhere: `N` global variable. *Note*: ever assign new value to this, treat this like if it were constant.
+    * Need to use `input` and `int` functions.
+1. The minimum value for `N` is 3, the max is 10.
+    * Need to use `if` (maybe with and `else` branch or `exit`), comparison operators like `<=` or `>` and `print`.
+1. The list of numbers need to be filled with random numbers.
+    * Need to store these somewhere as well: `random_numbers` global variable.
+1. Generate a random number `N` times.
+    * Need to use `for` (maybe `while`), use the `random` module with `import` and need to find a function which generates a random integer.
+1. Append each generated random number to the list.
+    * *Note*: we start out with an empty list.
+    * Need to use `append` function of the list.
+1. Show the numbers generated and stored in the list to the user one by one.
+    * Need to use a `for` again to iterate over the list and print each random number to the console.
+    * Must understand what is a "loop variable" and how does it behaves, how its value changes in each repetition of the loop.
+1. Clear the screen after each number shown.
+    * Must use the `os` module and the `system` function: e.g. `system('clear')` or `system('cls')`.
+1. Each number is shown to the user only for half a second.
+    * Must use the `time` module and it's `sleep` function (e.g. `sleep(0.5)`). 
+1. After each number was shown the game picks a random number from the list and shows that to the user.
+    * Must pick a random number (from 0 to `N` - 1) using the random module.
+    * Save this to a variable and use it as an index later.
+    * Use this index value to print the element at that index.
+1. The user must remember at which index this last number was located at in the list.
+    * Again, must use `input` and `int` to gather input from the user.
+    * The user must give a numeric input.
+1. The game decides if the user's input was a match or not.
+1. If it's a match the user wins, otherwise the user dies.
+
+## Non-functional requirements
+
+1. The program must not crash when given illegal input.
+1. The program must stay consistent at all times.
